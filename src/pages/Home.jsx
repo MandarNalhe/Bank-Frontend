@@ -1,7 +1,15 @@
 import Navbar from "../components/Navbar";
 import paisa from "../assets/paisa.jpg";
 import dollar from "../assets/dollar.png"
+import { useNavigate } from "react-router-dom";
 function Home() {
+  const navigate = useNavigate();
+  const handleRegister = async(e)=>{
+    setTimeout(()=>{
+      navigate('/register')
+    },100)
+  }
+
   return (
     <div className="bg-black h-screen w-full flex-col">
       <div className="h-[10%] p-10 pl-15">
@@ -17,7 +25,7 @@ function Home() {
             HAPPEN.
           </div>
           <div className="p-5 h-[15vh] w-full flex mt-13">
-            <button className="p-3 bg-[#edff06] w-[15vw] h-full text-black text-2xl font-extrabold rounded-full cursor-pointer">
+            <button onClick={handleRegister} className="p-3 bg-[#edff06] w-[15vw] h-full text-black text-2xl font-extrabold rounded-full cursor-pointer">
               START SAVING
             </button>
           </div>
