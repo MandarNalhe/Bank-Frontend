@@ -1,43 +1,38 @@
-import Navbar from "../components/Navbar";
-import paisa from "../assets/paisa.jpg";
-import dollar from "../assets/dollar.png"
+import { UsersIcon } from "@heroicons/react/24/solid";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-function Home() {
-  const navigate = useNavigate();
-  const handleRegister = async(e)=>{
-    setTimeout(()=>{
-      navigate('/register')
-    },100)
-  }
+import Dashboard from "../components/Dashboard";
+import Gullaks from "../components/Gullaks";
+import Account from "../components/Account";
+import Help from "../components/Help";
+UsersIcon
+function Home () {
+    const navigate = useNavigate();
+    const[toggle, setToggle] = useState("1");
 
-  return (
-    <div className="bg-black h-screen w-full flex-col">
-      <div className="h-[10%] p-10 pl-15">
-        <Navbar />
-      </div>
-      <div className="flex text-white justify-between p-15">
-        <div className="w-[50%] relative">
-          <div className="text-8xl text-extrabold  ">
-            MAKE.
-            <br />
-            DREAM.
-            <br />
-            HAPPEN.
-          </div>
-          <div className="p-5 h-[15vh] w-full flex mt-13">
-            <button onClick={handleRegister} className="p-3 bg-[#edff06] w-[15vw] h-full text-black text-2xl font-extrabold rounded-full cursor-pointer">
-              START SAVING
-            </button>
-          </div>
-          <img src={dollar} alt="" className="h-[25%] w-[20%] absolute bottom-0 left-[40%]" />
+    const toggleHandle = (e)=>{
+        setToggle(e.target.name)
+    }
+    return(
+        <div className="h-screen w-full bg-black">
+            <div id="topbar" className="flex justify-between w-full h-[10%] pt-[32px]">
+                <div id="logo" className="text-[#ffa800]  pl-[60px]">
+                    <UsersIcon className="h-[74px] w-[45px]" />
+                </div>
+                <div className="bg-[#ffbd59] h-[50px] w-[1100.3px] rounded-full mr-[60px] mt-[5px] flex justify-around font-semibold">
+                    <button className="hover:bg-[#ffa800] py-3 w-[25%] cursor-pointer rounded-full transition duration-200 h-full text-center" name="1" onClick={toggleHandle}>Dashboard</button>
+                    <button className="hover:bg-[#ffa800] py-3 w-[25%] cursor-pointer rounded-full transition duration-200 h-full text-center" name="2" onClick={toggleHandle}>Gullaks</button>
+                    <button className="hover:bg-[#ffa800] py-3 w-[25%] cursor-pointer rounded-full transition duration-200 h-full text-center" name="3" onClick={toggleHandle}>Account</button>
+                    <button className="hover:bg-[#ffa800] py-3 w-[25%] cursor-pointer rounded-full transition duration-200 h-full text-center" name="4" onClick={toggleHandle}>Help</button>
+                </div>
+            </div>
+            <div id="content" className="h-[90%] w-full">
+                {
+                    toggle == "1" ? <Dashboard/> : toggle == "2" ? <Gullaks/> : toggle == "3" ? <Account/> : <Help/>
+                }
+            </div>
         </div>
-        <div className="flex items-center justify-center h-[35vw] w-[50%] mr-20 relative">
-            <img src={dollar} alt="" className="h-[30%] w-[25%] absolute bottom-[75%] left-0" />
-          <img src={paisa} alt="" className="rounded-full h-full w-[60%] " />
-          <img src={dollar} alt="" className="h-[25%] w-[20%] absolute bottom-[30%] left-[90%]" />
-        </div>
-      </div>
-    </div>
-  );
+    )
 }
+
 export default Home;

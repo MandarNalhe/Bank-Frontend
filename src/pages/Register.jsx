@@ -1,8 +1,9 @@
 import { UsersIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import kaala from "../assets/kaala.jpg"
-import { stringify } from "postcss";
+import { useNavigate } from "react-router-dom";
 function Register () {
+    const navigate = useNavigate(); 
     const[loginData, setLoginData] = useState({
         email : "",
         password : "",
@@ -65,7 +66,7 @@ function Register () {
                 localStorage.setItem("refreshToken",data.refreshToken)
                 alert("Logged in Successfully")
                 setTimeout(()=>{
-                    navigate("/dashboard")
+                    navigate("/home")
                 },100)
             }else{
                 alert(`Error : ${data.message}`)
@@ -92,7 +93,7 @@ function Register () {
             if(response.ok){
                 alert("Registered Successfully");
                 setTimeout(()=>{
-                    navigate("/dashboard");
+                    navigate("/home");
                 },100)
             }else{
                 alert(`Error : ${data.message}`);
