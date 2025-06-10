@@ -20,10 +20,10 @@ function Home () {
                     <UsersIcon className="h-[74px] w-[45px]" />
                 </div>
                 <div className="bg-[#ffbd59] h-[50px] w-[1100.3px] rounded-full mr-[60px] mt-[5px] flex justify-around font-semibold">
-                    <button className="hover:bg-[#ffa800] py-3 w-[25%] cursor-pointer rounded-full transition duration-200 h-full text-center" name="1" onClick={toggleHandle}>Dashboard</button>
-                    <button className="hover:bg-[#ffa800] py-3 w-[25%] cursor-pointer rounded-full transition duration-200 h-full text-center" name="2" onClick={toggleHandle}>Gullaks</button>
-                    <button className="hover:bg-[#ffa800] py-3 w-[25%] cursor-pointer rounded-full transition duration-200 h-full text-center" name="3" onClick={toggleHandle}>Account</button>
-                    <button className="hover:bg-[#ffa800] py-3 w-[25%] cursor-pointer rounded-full transition duration-200 h-full text-center" name="4" onClick={toggleHandle}>Help</button>
+                    <button className={` py-3 w-[25%] cursor-pointer rounded-full transition duration-200 h-full text-center ${toggle == 1 ? `bg-[#ffa800]`:`bg-[#ffbd59]`}`} name="1" onClick={toggleHandle}>Dashboard</button>
+                    <button className={` py-3 w-[25%] cursor-pointer rounded-full transition duration-200 h-full text-center ${toggle == 2 ? `bg-[#ffa800]`:`bg-[#ffbd59]`}`} name="2" onClick={toggleHandle}>Gullaks</button>
+                    <button className={` py-3 w-[25%] cursor-pointer rounded-full transition duration-200 h-full text-center ${toggle == 3 ? `bg-[#ffa800]`:`bg-[#ffbd59]`}`} name="3" onClick={toggleHandle}>Account</button>
+                    <button className={` py-3 w-[25%] cursor-pointer rounded-full transition duration-200 h-full text-center ${toggle == 4 ? `bg-[#ffa800]`:`bg-[#ffbd59]`}`} name="4" onClick={toggleHandle}>Help</button>
                 </div>
             </div>
             <div id="content" className="h-[90%] w-full">
